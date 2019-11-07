@@ -1,27 +1,31 @@
-var datapembeli=[];
-	function munculpembeli() {
-		var namapembeli = document.getElementById("alert");
-		alert.innerHTML ="";
+var dataMakanan =[""];
 
-		for (var i=0; i<datapembeli.length;i++){
-			var buttonubah = "<a href='#' onclick='ubahpembeli("+i+")'>ubah</a>";
-			var buttonapus = "<a href='#' onclick='apuspembeli("+i+")'>apus</a>";
+function tampilMakanan(){
+  var dataMakanan = document.getElementById("datamakanan");
+  dataMakanan.innerHTML = "";
 
-			namapembeli.innerHTML += "<li>" + datapembeli[i] + "["+buttonubah+"]</li>";
-		}
-	}
-				function tambahpembeli(){
-					var tambah = document.querySelector("input[name=pembeli]");
-					datapembeli.push(tambah.value);
-					munculpembeli();
-				}
-				function ubahpembeli(id){
-					var ubah = prompt("Masukkan nama pembeli". datapembeli);
-					datapembeli[id] = ubah;
-					munculpembeli();
-				}
-				
-				// function apuspembeli(){
-				// 	datapembeli.splice(id, 1);
-				// 	munculpembeli();
-				// }
+for(var i = 0; i < dataMakanan.length; i++){
+  var buttonUbah = "<a href='#' onclick='ubahMakanan("+i+")'>Ubah</a>";
+  var buttonHapus = "<a href='#' onclick='hapusmakanan()'>Hapus</a>";
+
+
+  dataMakanan.innerHTML += "<ul>" + dataMakanan[i];
+  }
+}
+
+  function tambahMakanan(){
+    var tambah = document.querySelector("input[name=Makanan]");
+    dataMakanan.push(tambah.value);
+    dataMakanan();
+  }
+
+    function ubahMakanan(id){
+      var ubahMakanan = prompt("Masukan dataMakanan", dataMakanan);
+      dataMakanan[id] = dataMakanan;
+      tampilDataMakanan();
+    }
+
+    function hapusDataMakanan(id){
+      dataMakanan.splice(id, true);
+      tampilDataMakanan();
+    }
